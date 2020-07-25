@@ -40,12 +40,12 @@ class MyApp extends StatelessWidget {
 
   Future<void> signInWithGoogle() async {
     GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
-//    GoogleSignInAuthentication googleSignInAuthentication =
-//        await googleSignInAccount.authentication;
-//    AuthCredential authCredential = GoogleAuthProvider.getCredential(
-//        idToken: googleSignInAuthentication.idToken,
-//        accessToken: googleSignInAuthentication.accessToken);
-//    AuthResult authResult = await _auth.signInWithCredential(authCredential);
+    GoogleSignInAuthentication googleSignInAuthentication =
+        await googleSignInAccount.authentication;
+    AuthCredential authCredential = GoogleAuthProvider.getCredential(
+        idToken: googleSignInAuthentication.idToken,
+        accessToken: googleSignInAuthentication.accessToken);
+    AuthResult authResult = await _auth.signInWithCredential(authCredential);
     FirebaseUser user = await _auth.currentUser();
     print('user email = ${user.email}');
   }
